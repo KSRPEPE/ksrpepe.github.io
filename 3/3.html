@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>PEPE</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon" sizes="any">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Полина', sans-serif;
+            background-color: #eee;
+        }
+
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 600px;
+            width:400px;
+            transform: translate(-50%, -50%);
+            transform-style: preserve-3d;
+            perspective: 600px;
+            transition: .5s;
+        }
+
+        .card:hover .card-front {
+            transform: rotateX(-180deg);
+        }
+
+        .card:hover .card-back {
+            transform: rotateX(0deg);
+        }
+
+        .card-front {
+            height: 100%;
+            width: 100%;
+            background-image: url('./img-1.jpg');
+            background-position: 50% 50%;
+            background-size: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #000000;
+            backface-visibility: hidden;
+            transform: rotateX(0deg);
+            transition: .5s;
+        }
+
+        .card-back {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #000000;
+            backface-visibility: hidden;
+            transform: rotateX(180deg);
+            transition: .5s;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .card-back h2 {
+            margin: 60% auto 35% auto;
+            font-size: 26px;
+        }
+
+        .card-back span {
+            font-size: 20px;
+        }
+
+        .social-icons a {
+            height: 40px;
+            width: 40px;
+            padding: 5px 5px;
+            border-radius: 4px;
+        }
+
+        .social-icons a:hover {
+            color: #000000;
+            background-color: #fff;
+        }
+
+        .contact-info {
+            display: none;
+            margin-top: 10px;
+            color: #ff00ff;
+            font-size: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-front"></div>
+        <div class="card-back">
+            <h2>Привет<br><span>мои контакты:</span></h2>
+            <div class="social-icons">
+                <a href="#" class="fa fa-telegram" aria-hidden="true" onclick="showContact()"></a>
+            </div>
+            <div class="contact-info" id="contact"> @sv3887278 </div>
+        </div>
+    </div>
+
+    <script>
+        function showContact() {
+            const contactInfo = document.getElementById('contact');
+            contactInfo.style.display = contactInfo.style.display === 'none' || contactInfo.style.display === '' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
